@@ -11,7 +11,12 @@ export interface Project {
   icon: string;
   /** Rótulo curto exibido no card de preview */
   label: string;
-  url: string;
+  /** Destino do link: repositório, demo ao vivo ou âncora interna (#contact). */
+  href: string;
+  /** true = link externo (abre em nova aba); false = âncora interna. */
+  external: boolean;
+  /** Projeto de repositório privado — exibe cadeado e aponta para contato. */
+  isPrivate?: boolean;
 }
 
 /** Um grupo de skills (categoria + itens). */

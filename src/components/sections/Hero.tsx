@@ -1,3 +1,4 @@
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { useClock } from '../../hooks/useClock';
 
 /**
@@ -6,15 +7,37 @@ import { useClock } from '../../hooks/useClock';
  * Camadas (de trás para frente):
  *   1. .hero-grid    — grade azul translúcida com drift diagonal (CSS).
  *   2. .hero-shape   — poliedro wireframe abstrato com float vertical (CSS).
- *   3. .hero-content — eyebrow + nome gigante + subtítulo.
+ *   3. .hero-content — eyebrow + nome gigante + subtítulo (entrada em stagger).
  *   + cantos com relógio de Brasília (esq.) e formação (dir.) + scroll cue.
  *
- * O SVG é um poliedro geométrico abstrato: vértices conectados por linhas
- * finas, pontos azuis nos vértices e um brilho azul suave no vértice superior.
- * Inspirado na estética de yutaabe.com sem copiar o mascote.
+ * Motion (decisão de design — portfólio criativo, lente Jakub/polish):
+ *   A entrada do texto é uma animação de "rare frequency" (acontece uma vez,
+ *   no load) → delight é bem-vindo. Recipe de enter: opacity + translateY +
+ *   blur, com easing custom (easeOutExpo) e leve stagger entre as três linhas.
+ *   Em `prefers-reduced-motion`, o hook useReducedMotion zera o movimento e o
+ *   blur, deixando apenas um fade discreto (Framer Motion usa JS, então o
+ *   media query de CSS não o alcança — o opt-out precisa ser explícito).
  */
 export default function Hero() {
   const clock = useClock();
+  const reduce = useReducedMotion();
+
+  const container: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+  };
+
+  const item: Variants = reduce
+    ? { hidden: { opacity: 0 }, show: { opacity: 1, transition: { duration: 0.3 } } }
+    : {
+        hidden: { opacity: 0, y: 24, filter: 'blur(8px)' },
+        show: {
+          opacity: 1,
+          y: 0,
+          filter: 'blur(0px)',
+          transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+        },
+      };
 
   return (
     <section id="home">
@@ -47,15 +70,19 @@ export default function Hero() {
         <circle cx="200" cy="30" r="55" fill="#30b8ff" opacity="0.06" />
       </svg>
 
-      <div className="hero-content">
-        <p className="hero-eyebrow">/ Full-Stack Developer</p>
-        <h1 className="hero-name">
+      <motion.div className="hero-content" variants={container} initial="hidden" animate="show">
+        <motion.p className="hero-eyebrow" variants={item}>
+          / Full-Stack Developer
+        </motion.p>
+        <motion.h1 className="hero-name" variants={item}>
           Leonardo
           <br />
           Cavalcanti
-        </h1>
-        <p className="hero-sub">Code · Architecture · Interactive Design</p>
-      </div>
+        </motion.h1>
+        <motion.p className="hero-sub" variants={item}>
+          Code · Architecture · Interactive Design
+        </motion.p>
+      </motion.div>
 
       <div className="corner-info bl">
         <span>{clock}</span>

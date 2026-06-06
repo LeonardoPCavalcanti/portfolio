@@ -801,16 +801,21 @@ body.lights-out .site-footer {
 }
 
 /* ─── REVEAL ON SCROLL ─── */
+/* Recipe de "enter" (Jakub/polish): opacity + translateY + blur, com easing
+   custom (easeOutExpo-ish) — mais premium que o `ease` padrão. */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
+  filter: blur(6px);
   transition:
-    opacity 0.75s ease,
-    transform 0.75s ease;
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.in {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0);
 }
 
 /* ─── RESPONSIVO ─── */
@@ -858,5 +863,36 @@ body.lights-out .site-footer {
   }
   .corner-info.br {
     display: none;
+  }
+}
+
+/* ─── ACESSIBILIDADE: prefers-reduced-motion (obrigatório) ───
+   Desativa animações preservando o estado final, e interrompe os loops
+   ambientes (grid, poliedro, scroll cue, ticker) que poderiam incomodar
+   usuários sensíveis a movimento (gatilhos vestibulares). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  /* Conteúdo sempre visível, mesmo sem a animação de entrada. */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  /* Interrompe explicitamente os loops contínuos. */
+  .hero-grid,
+  .hero-shape,
+  .scroll-line,
+  .ticker-track {
+    animation: none !important;
   }
 }

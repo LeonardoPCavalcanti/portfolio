@@ -1,20 +1,24 @@
 import { useState } from 'react';
+import { ArrowUpRight, Lock } from 'lucide-react';
 import { projects } from '../../data/projects';
 import RevealOnScroll from '../ui/RevealOnScroll';
 import ProjectPreviewCard from '../ui/ProjectPreviewCard';
 
 /**
  * Lista vertical de projetos. Cada item é um link com:
- *   [número] [título + descrição + tags] [seta ↗]
+ *   [número] [título + descrição + tags] [seta ↗ ou cadeado]
+ *
+ * Links:
+ *   - external=true  → abre o repositório ou demo em nova aba (seta).
+ *   - isPrivate=true → repositório privado; aponta para #contact
+ *     ("disponível sob solicitação") e exibe um cadeado em vez de seta,
+ *     evitando enviar recrutadores para uma página 404.
  *
  * Ao passar o mouse sobre um item, um card de preview (ProjectPreviewCard)
  * aparece e segue o cursor mostrando o emoji e o rótulo do projeto.
- * O índice do projeto sob o cursor é guardado em `hovered`.
  */
 export default function Projects() {
   const [hovered, setHovered] = useState<number | null>(null);
-
-  // Projeto atualmente em hover (ou o primeiro, como fallback de conteúdo do card).
   const active = hovered !== null ? projects[hovered] : null;
 
   return (
@@ -29,9 +33,14 @@ export default function Projects() {
             <RevealOnScroll key={project.num} delay={i * 0.06}>
               <a
                 className="project-item"
-                href={project.url}
-                target="_blank"
-                rel="noreferrer"
+                href={project.href}
+                target={project.external ? '_blank' : undefined}
+                rel={project.external ? 'noreferrer' : undefined}
+                title={
+                  project.isPrivate
+                    ? 'Repositório privado — disponível sob solicitação'
+                    : undefined
+                }
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
@@ -45,9 +54,12 @@ export default function Projects() {
                         {tag}
                       </span>
                     ))}
+                    {project.isPrivate && <span className="tag">Privado · sob solicitação</span>}
                   </div>
                 </div>
-                <span className="project-arrow">↗</span>
+                <span className="project-arrow">
+                  {project.isPrivate ? <Lock size={16} /> : <ArrowUpRight size={18} />}
+                </span>
               </a>
             </RevealOnScroll>
           ))}
