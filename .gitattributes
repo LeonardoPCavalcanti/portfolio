@@ -1,0 +1,7 @@
+# Normaliza line endings: o repositório guarda LF, o checkout local pode usar CRLF.
+* text=auto eol=lf
+
+# Arquivos binários (não normalizar)
+*.png binary
+*.jpg binary
+*.svg text eol=lf
