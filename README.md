@@ -11,6 +11,8 @@ Portfólio pessoal com tema dark minimalista, tipografia grande e bold e estéti
 
 **🔗 Ver ao vivo: [leonardopcavalcanti.github.io/portfolio](https://leonardopcavalcanti.github.io/portfolio/)**
 
+[![Portfólio — Leonardo Cavalcanti](docs/preview.png)](https://leonardopcavalcanti.github.io/portfolio/)
+
 ## Destaques
 
 - **Acessibilidade real:** suporte completo a `prefers-reduced-motion` — todos os loops e transições são neutralizados para usuários sensíveis a movimento, preservando o conteúdo.
