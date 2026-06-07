@@ -1,6 +1,24 @@
 # Portfólio — Leonardo Cavalcanti
 
+![React](https://img.shields.io/badge/React-18-20232A?logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?logo=framer&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 Portfólio pessoal com tema dark minimalista, tipografia grande e bold e estética tecno/editorial — inspirado em yutaabe.com. Single-page com scroll suave entre seções.
+
+**🔗 Ver ao vivo: [leonardopcavalcanti.github.io/portfolio](https://leonardopcavalcanti.github.io/portfolio/)**
+
+## Destaques
+
+- **Acessibilidade real:** suporte completo a `prefers-reduced-motion` — todos os loops e transições são neutralizados para usuários sensíveis a movimento, preservando o conteúdo.
+- **Motion proposital:** entrada do hero em _stagger_ via Framer Motion (opacity + translateY + blur, easing `easeOutExpo`), reveal-on-scroll via `IntersectionObserver` e micro-interações nos projetos.
+- **Cursor customizado** com `mix-blend-mode: difference` e card de preview que segue o ponteiro — desativado automaticamente em dispositivos touch.
+- **SEO & social:** meta tags Open Graph/Twitter e cartão social gerado (`og-image.svg`).
+- **Tipado de ponta a ponta**, sem `any`, com ESLint + Prettier; build limpo (`tsc && vite build`).
+- **CI/CD:** deploy automático no GitHub Pages a cada push em `main`.
 
 ## Stack
 
