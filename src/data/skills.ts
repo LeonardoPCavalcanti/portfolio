@@ -11,18 +11,18 @@ export const skills: SkillGroup[] = [
   },
   {
     category: 'Backend',
-    items: ['Node.js', 'NestJS', 'Express', 'Spring Boot', 'gRPC'],
+    items: ['Node.js', 'NestJS', 'Express', 'Spring Boot', 'Django REST', 'gRPC'],
   },
   {
-    category: 'Banco de Dados',
-    items: ['PostgreSQL', 'Redis (em breve)'],
+    category: 'Dados & Infra',
+    items: ['PostgreSQL', 'Redis', 'Docker', 'Nginx', 'GitHub Actions', 'Linux'],
   },
   {
-    category: 'DevOps & Infra',
-    items: ['Docker', 'Nginx', 'GitHub Actions', 'Vercel', 'Linux', 'Git'],
+    category: 'Teoria & CS',
+    items: ['Sistemas Distribuídos', 'Compiladores', 'Computação Paralela', 'Concorrência'],
   },
   {
-    category: 'Testes',
-    items: ['Jest', 'Postman', 'Vitest'],
+    category: 'Testes & Tooling',
+    items: ['Pytest', 'Jest', 'Vitest', 'Postman', 'Git'],
   },
 ];

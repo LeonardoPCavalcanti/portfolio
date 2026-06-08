@@ -1,32 +1,34 @@
 /**
- * Header fixo, transparente, em três blocos:
- *   [Projects · About]   [LC]   [Skills · Contact]
- *
- * Todos os links são âncoras de scroll suave (o `scroll-behavior: smooth`
- * global cuida da animação). O logo central "LC" leva ao topo.
+ * Navegação flutuante em "pílula de vidro" (backdrop-blur), centralizada no
+ * topo — assinatura visual da wibify. Marca à esquerda, âncoras ao centro
+ * (escondidas no mobile) e um CTA de contato à direita.
  */
 export default function Header() {
   return (
     <header className="site-header">
-      <nav className="site-nav">
-        <a className="nav-link" href="#projects">
-          Projects
+      <nav className="nav-pill">
+        <a className="brand" href="#home" aria-label="Início">
+          <span className="dot" />
+          LC
         </a>
-        <a className="nav-link" href="#about">
-          About
-        </a>
-      </nav>
 
-      <a className="logo" href="#home" aria-label="Início">
-        LC
-      </a>
+        <div className="nav-center">
+          <a className="nav-link" href="#focus">
+            Estudo
+          </a>
+          <a className="nav-link" href="#projects">
+            Projetos
+          </a>
+          <a className="nav-link" href="#references">
+            Leituras
+          </a>
+          <a className="nav-link" href="#about">
+            Sobre
+          </a>
+        </div>
 
-      <nav className="site-nav">
-        <a className="nav-link" href="#skills">
-          Skills
-        </a>
-        <a className="nav-link" href="#contact">
-          Contact
+        <a className="nav-cta" href="#contact">
+          Contato
         </a>
       </nav>
     </header>

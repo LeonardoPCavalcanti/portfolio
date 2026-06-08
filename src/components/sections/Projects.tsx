@@ -1,77 +1,80 @@
-import { useState } from 'react';
-import { ArrowUpRight, Lock } from 'lucide-react';
+import { ArrowUpRight, Lock, Play } from 'lucide-react';
 import { projects } from '../../data/projects';
 import RevealOnScroll from '../ui/RevealOnScroll';
-import ProjectPreviewCard from '../ui/ProjectPreviewCard';
 
 /**
- * Lista vertical de projetos. Cada item é um link com:
- *   [número] [título + descrição + tags] [seta ↗ ou cadeado]
- *
- * Links:
- *   - external=true  → abre o repositório ou demo em nova aba (seta).
- *   - isPrivate=true → repositório privado; aponta para #contact
- *     ("disponível sob solicitação") e exibe um cadeado em vez de seta,
- *     evitando enviar recrutadores para uma página 404.
- *
- * Ao passar o mouse sobre um item, um card de preview (ProjectPreviewCard)
- * aparece e segue o cursor mostrando o emoji e o rótulo do projeto.
+ * Projetos como cards. Cada card traz, além de título/descrição/tags, um bloco
+ * "o que se estuda aqui" (destaque em limão) — o diferencial acadêmico do
+ * portfólio. Projetos com demo interativa expõem um botão "Demo ao vivo";
+ * repositórios privados mostram cadeado e apontam para #contact (sem 404).
  */
 export default function Projects() {
-  const [hovered, setHovered] = useState<number | null>(null);
-  const active = hovered !== null ? projects[hovered] : null;
-
   return (
     <section id="projects">
       <div className="container">
         <RevealOnScroll>
-          <div className="section-label">Projects</div>
+          <div className="section-head">
+            <span className="eyebrow">Projetos</span>
+            <h2 className="section-title">
+              Conceitos que viraram <span className="serif">código rodando</span>
+            </h2>
+            <p className="section-lead">
+              Cada projeto isola uma ideia de ciência da computação e a torna
+              tangível — muitos com demonstração interativa.
+            </p>
+          </div>
         </RevealOnScroll>
 
         <div className="projects-list">
           {projects.map((project, i) => (
-            <RevealOnScroll key={project.num} delay={i * 0.06}>
-              <a
-                className="project-item"
-                href={project.href}
-                target={project.external ? '_blank' : undefined}
-                rel={project.external ? 'noreferrer' : undefined}
-                title={
-                  project.isPrivate
-                    ? 'Repositório privado — disponível sob solicitação'
-                    : undefined
-                }
-                onMouseEnter={() => setHovered(i)}
-                onMouseLeave={() => setHovered(null)}
-              >
+            <RevealOnScroll key={project.num} delay={i * 0.05}>
+              <article className="project-card">
                 <span className="project-num">{project.num}</span>
+
                 <div>
-                  <div className="project-title">{project.title}</div>
+                  <h3 className="project-title">{project.title}</h3>
+                  <span className="project-label">{project.label}</span>
                   <p className="project-desc">{project.description}</p>
+
+                  <div className="project-study">
+                    <span className="tag-study">Estuda</span>
+                    <p>{project.study}</p>
+                  </div>
+
                   <div className="project-tags">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="tag">
+                      <span className="chip" key={tag}>
                         {tag}
                       </span>
                     ))}
-                    {project.isPrivate && <span className="tag">Privado · sob solicitação</span>}
                   </div>
                 </div>
-                <span className="project-arrow">
-                  {project.isPrivate ? <Lock size={16} /> : <ArrowUpRight size={18} />}
-                </span>
-              </a>
+
+                <div className="project-actions">
+                  {project.demo && (
+                    <a className="proj-link" href={project.demo} target="_blank" rel="noreferrer">
+                      <Play size={13} /> Demo
+                    </a>
+                  )}
+                  {project.isPrivate ? (
+                    <a
+                      className="proj-link locked"
+                      href={project.href}
+                      title="Repositório privado — disponível sob solicitação"
+                    >
+                      <Lock size={13} /> Sob solicitação
+                    </a>
+                  ) : (
+                    <a className="proj-link" href={project.href} target="_blank" rel="noreferrer">
+                      <ArrowUpRight size={13} /> Código
+                    </a>
+                  )}
+                </div>
+              </article>
             </RevealOnScroll>
           ))}
         </div>
       </div>
-
-      {/* Card de preview que segue o cursor — montado uma vez, alterna visibilidade. */}
-      <ProjectPreviewCard
-        icon={active?.icon ?? ''}
-        label={active?.label ?? ''}
-        visible={hovered !== null}
-      />
     </section>
   );
 }

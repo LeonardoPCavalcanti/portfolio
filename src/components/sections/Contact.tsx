@@ -1,44 +1,45 @@
 import { ArrowUpRight } from 'lucide-react';
 import RevealOnScroll from '../ui/RevealOnScroll';
-import Ticker from '../ui/Ticker';
 
 const EMAIL = 'leopcavalcanti30@gmail.com';
 
 /**
- * Seção de contato:
- *   - Heading pequeno "NOW ACCEPTING INQUIRIES".
- *   - Email como link grande (mailto) com seta animada no hover.
- *   - Ticker em loop infinito com status/localização.
- *   - Links sociais (GitHub, LinkedIn).
+ * Chamada final de contato, centralizada: título grande com acento em serif,
+ * e-mail como link mono e botões para GitHub/LinkedIn.
  */
 export default function Contact() {
   return (
     <section id="contact">
       <div className="container">
         <RevealOnScroll>
-          <p className="contact-heading">Now Accepting Inquiries</p>
-          <a className="contact-email-link" href={`mailto:${EMAIL}`}>
+          <span className="eyebrow" style={{ justifyContent: 'center' }}>
+            Vamos conversar
+          </span>
+          <h2 className="contact-title">
+            Aberto a estágios e <span className="serif">colaborações</span>
+          </h2>
+
+          <a className="contact-email" href={`mailto:${EMAIL}`}>
             {EMAIL}
-            <span className="arr">
-              <ArrowUpRight size={28} strokeWidth={2.2} />
-            </span>
+            <ArrowUpRight size={22} strokeWidth={2} />
           </a>
-        </RevealOnScroll>
 
-        <Ticker />
-
-        <RevealOnScroll>
           <div className="contact-links">
-            <a className="cl" href="https://github.com/LeonardoPCavalcanti" target="_blank" rel="noreferrer">
-              GitHub <span className="ext">↗</span>
+            <a
+              className="btn btn-out"
+              href="https://github.com/LeonardoPCavalcanti"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub <ArrowUpRight size={15} />
             </a>
             <a
-              className="cl"
+              className="btn btn-out"
               href="https://linkedin.com/in/leonardocavalcanti-dev"
               target="_blank"
               rel="noreferrer"
             >
-              LinkedIn <span className="ext">↗</span>
+              LinkedIn <ArrowUpRight size={15} />
             </a>
           </div>
         </RevealOnScroll>
