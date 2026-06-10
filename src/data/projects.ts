@@ -64,8 +64,8 @@ export const projects: Project[] = [
       'Arquitetura de upload direto ao storage: presigned URLs (o cliente envia direto ao bucket, sem passar o arquivo pelo servidor), separação de responsabilidades em monorepo e CI/CD.',
     tags: ['NestJS', 'React', 'Cloudflare R2', 'Turborepo', 'TypeScript'],
     label: 'UPLOAD · STORAGE · MONOREPO',
-    href: 'https://filevault-henna.vercel.app',
-    demo: 'https://filevault-henna.vercel.app',
+    href: 'https://filevault-api.vercel.app',
+    demo: 'https://filevault-api.vercel.app',
     external: true,
   },
   {
