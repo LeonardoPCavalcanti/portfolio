@@ -41,6 +41,8 @@ export default function Projects() {
                     <p>{project.study}</p>
                   </div>
 
+                  {project.metric && <p className="project-metric">{project.metric}</p>}
+
                   <div className="project-tags">
                     {project.tags.map((tag) => (
                       <span className="chip" key={tag}>
@@ -48,6 +50,25 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+
+                  {project.shot && project.demo && (
+                    <a
+                      className="project-shot"
+                      href={project.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Abrir demo ao vivo de ${project.title}`}
+                    >
+                      <img
+                        src={project.shot}
+                        alt={`Captura de tela real do demo de ${project.title}`}
+                        loading="lazy"
+                        decoding="async"
+                        width={1440}
+                        height={900}
+                      />
+                    </a>
+                  )}
                 </div>
 
                 <div className="project-actions">

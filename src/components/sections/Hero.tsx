@@ -4,7 +4,7 @@ import { ArrowUpRight, Github } from 'lucide-react';
 /** Estatísticas-resumo exibidas abaixo do título (mistura mono + serif). */
 const stats = [
   { num: '2022', serif: false, label: 'Codando desde' },
-  { num: '7', serif: false, label: 'Projetos públicos & privados' },
+  { num: '6', serif: false, label: 'Projetos públicos & privados' },
   { num: '3', serif: false, label: 'Anos de experiência' },
   { num: 'IC', serif: true, label: 'Iniciação científica · IMD/UFRN' },
 ];

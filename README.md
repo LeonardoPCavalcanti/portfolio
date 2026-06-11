@@ -11,13 +11,14 @@ Portfólio pessoal com identidade editorial: fundo quase-preto, verde-limão ác
 
 O viés é **acadêmico**: cada projeto é apresentado junto ao conceito de Ciência da Computação que ele estuda, e há uma seção de **leituras de referência** — a ideia é compartilhar conhecimento com quem visita o perfil, não só listar trabalhos.
 
-**🔗 Ver ao vivo: [leonardopcavalcanti.github.io/portfolio](https://leonardopcavalcanti.github.io/portfolio/)**
+**Ver ao vivo: [leonardopcavalcanti.github.io/portfolio](https://leonardopcavalcanti.github.io/portfolio/)**
 
 [![Portfólio — Leonardo Cavalcanti](docs/preview.png)](https://leonardopcavalcanti.github.io/portfolio/)
 
 ## Destaques
 
 - **Foco acadêmico:** seção "Áreas de estudo" (cards numerados) e seção "Leituras de referência" (Lamport, Dragon Book, Amdahl, Kleppmann…); cada projeto traz o conceito que ensina.
+- **Prova, não adjetivo:** cada card de projeto exibe uma métrica medida (testes, Lighthouse, latência de sincronização) e um screenshot real do demo ao vivo, clicável.
 - **Acessibilidade real:** suporte completo a `prefers-reduced-motion` — animações de entrada e revelações são neutralizadas, preservando o conteúdo.
 - **Motion proposital:** entrada do hero em _stagger_ via Framer Motion (opacity + translateY + blur, easing `easeOutExpo`) e reveal-on-scroll via `IntersectionObserver`.
 - **SEO & social:** meta tags Open Graph/Twitter e cartão social (`og-image.svg`).

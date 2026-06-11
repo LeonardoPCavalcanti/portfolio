@@ -32,7 +32,7 @@ export const references: Reference[] = [
     file: 'parallel-programming.pdf',
     author: 'Peter Pacheco',
     title: 'An Introduction to Parallel Programming',
-    note: 'OpenMP e MPI na prática, com análise de speedup e eficiência — base do Parallel Computing.',
+    note: 'OpenMP e MPI na prática, com análise de speedup e eficiência, dos estudos de HPC.',
     href: 'https://www.cs.usfca.edu/~peter/ipp/',
   },
   {

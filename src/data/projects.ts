@@ -1,4 +1,9 @@
 import type { Project } from '../types';
+import shotCineReserve from '../assets/shots/cinereserve.jpg';
+import shotZoonoses from '../assets/shots/zoonoses.jpg';
+import shotFileVault from '../assets/shots/filevault.jpg';
+import shotTwitter from '../assets/shots/twitter.jpg';
+import shotCompiler from '../assets/shots/compiler.jpg';
 
 const GH = 'https://github.com/LeonardoPCavalcanti';
 const PAGES = 'https://leonardopcavalcanti.github.io';
@@ -16,9 +21,41 @@ export const projects: Project[] = [
     href: `${GH}/cinereserve`,
     demo: `${PAGES}/cinereserve/`,
     external: true,
+    metric: '30 testes automatizados · corrida de reserva tratada com 409',
+    shot: shotCineReserve,
   },
   {
     num: '02',
+    title: 'Zoonoses Inventory',
+    description:
+      'Controle de estoque em tempo real para centros de zoonoses: entradas, saídas e validades sincronizadas entre toda a equipe no instante em que acontecem, com acesso por papel e auditoria.',
+    study:
+      'Estado distribuído em tempo real: replicação de eventos via WebSocket (Supabase Realtime), Row Level Security como autorização no banco e um trigger que impede saída além do saldo — a regra de negócio onde ela não pode ser burlada.',
+    tags: ['React', 'TypeScript', 'Supabase', 'Realtime', 'PostgreSQL', 'RLS'],
+    label: 'TEMPO REAL · SAÚDE PÚBLICA',
+    href: `${GH}/zoonoses-inventory-dashboard`,
+    demo: `${PAGES}/zoonoses-inventory-dashboard/`,
+    external: true,
+    metric: 'sincronização entre clientes em <1s · conta demo de um clique',
+    shot: shotZoonoses,
+  },
+  {
+    num: '03',
+    title: 'FileVault',
+    description:
+      'Aplicação de upload de arquivos com presigned URLs para object storage, monorepo Turborepo e deploy automatizado. Demo ao vivo disponível.',
+    study:
+      'Arquitetura de upload direto ao storage: presigned URLs (o cliente envia direto ao bucket, sem passar o arquivo pelo servidor), validação por magic bytes, separação de responsabilidades em monorepo e CI/CD.',
+    tags: ['NestJS', 'React', 'Cloudflare R2', 'Turborepo', 'TypeScript'],
+    label: 'UPLOAD · STORAGE · MONOREPO',
+    href: `${GH}/filevault`,
+    demo: 'https://filevault-api.vercel.app',
+    external: true,
+    metric: '13 testes verdes · URLs assinadas com expiração curta',
+    shot: shotFileVault,
+  },
+  {
+    num: '04',
     title: 'Distributed Twitter',
     description:
       'Implementação de consistência eventual vs. causal em micro-blogging distribuído, com relógios vetoriais e broadcast causal entre réplicas.',
@@ -29,9 +66,11 @@ export const projects: Project[] = [
     href: `${GH}/distributed-twitter-consistency`,
     demo: `${PAGES}/distributed-twitter-consistency/`,
     external: true,
+    metric: '3 réplicas simuladas · entrega causal visualizada passo a passo',
+    shot: shotTwitter,
   },
   {
-    num: '03',
+    num: '05',
     title: 'Expression Compiler',
     description:
       'Tradutor de expressões aritméticas com análise léxica, parser LL(1) e geração de código intermediário de três endereços.',
@@ -42,31 +81,8 @@ export const projects: Project[] = [
     href: `${GH}/python-expression-compiler`,
     demo: `${PAGES}/python-expression-compiler/`,
     external: true,
-  },
-  {
-    num: '04',
-    title: 'Parallel Computing',
-    description:
-      'Computação paralela com OpenMP, MPI e GPU offloading, executada em cluster HPC gerenciado com SLURM, com análise de speedup e eficiência.',
-    study:
-      'Modelos de paralelismo: memória compartilhada (OpenMP), troca de mensagens (MPI) e offloading para GPU. A Lei de Amdahl, escalabilidade forte vs. fraca e medição empírica de speedup no cluster.',
-    tags: ['C', 'OpenMP', 'MPI', 'SLURM', 'GPU', 'HPC'],
-    label: 'HPC · PARALELISMO · GPU',
-    href: `${GH}/c-openmp-mpi-parallel-computing`,
-    external: true,
-  },
-  {
-    num: '05',
-    title: 'FileVault',
-    description:
-      'Aplicação de upload de arquivos com presigned URLs para object storage, monorepo Turborepo e deploy automatizado. Demo ao vivo disponível.',
-    study:
-      'Arquitetura de upload direto ao storage: presigned URLs (o cliente envia direto ao bucket, sem passar o arquivo pelo servidor), separação de responsabilidades em monorepo e CI/CD.',
-    tags: ['NestJS', 'React', 'Cloudflare R2', 'Turborepo', 'TypeScript'],
-    label: 'UPLOAD · STORAGE · MONOREPO',
-    href: 'https://filevault-api.vercel.app',
-    demo: 'https://filevault-api.vercel.app',
-    external: true,
+    metric: 'pipeline completo no browser: tokens → AST → IR → execução',
+    shot: shotCompiler,
   },
   {
     num: '06',
@@ -80,18 +96,6 @@ export const projects: Project[] = [
     href: '#contact',
     external: false,
     isPrivate: true,
-  },
-  {
-    num: '07',
-    title: 'Zoonoses Inventory',
-    description:
-      'Sistema full-stack de gestão de inventário para centros de zoonoses, com CI/CD e containerização.',
-    study:
-      'Aplicação de software a um problema de saúde pública: modelagem de inventário, controle de acesso e uma esteira de entrega contínua containerizada.',
-    tags: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Docker', 'GitHub Actions'],
-    label: 'GESTÃO · CI/CD · CONTAINERS',
-    href: '#contact',
-    external: false,
-    isPrivate: true,
+    metric: 'Lighthouse 100 · 100 · 100 · 100 (perf, a11y, práticas, SEO)',
   },
 ];

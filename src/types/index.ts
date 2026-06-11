@@ -22,6 +22,10 @@ export interface Project {
   external: boolean;
   /** Projeto de repositório privado — exibe cadeado e aponta para contato. */
   isPrivate?: boolean;
+  /** Resultado mensurável do projeto (testes, Lighthouse, latência) — prova, não adjetivo. */
+  metric?: string;
+  /** Screenshot real do demo ao vivo (importado de assets/shots). */
+  shot?: string;
 }
 
 /** Uma área de estudo/foco (card numerado, grade 2×N). */

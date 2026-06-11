@@ -480,11 +480,50 @@ section {
   color: var(--muted);
   line-height: 1.6;
 }
+.project-metric {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  border-left: 2px solid var(--accent);
+  padding-left: 0.65rem;
+  margin-top: 1.1rem;
+}
 .project-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
   margin-top: 1.2rem;
+}
+/* Screenshot real do demo — tratamento editorial: levemente dessaturado,
+   ganha cor plena quando o card recebe atenção. */
+.project-shot {
+  display: block;
+  margin-top: 1.4rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  max-width: 720px;
+}
+.project-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  object-position: top;
+  filter: saturate(0.8);
+  transition:
+    filter 0.5s var(--ease),
+    transform 0.5s var(--ease);
+}
+.project-card:hover .project-shot img {
+  filter: none;
+  transform: scale(1.015);
+}
+.project-shot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 .project-actions {
   display: flex;
