@@ -28,15 +28,15 @@ export const projects: Project[] = [
     num: '02',
     title: 'Zoonoses Inventory',
     description:
-      'Controle de estoque em tempo real para centros de zoonoses: entradas, saídas e validades sincronizadas entre toda a equipe no instante em que acontecem, com acesso por papel e auditoria.',
+      'Controle de estoque em tempo real para centros de zoonoses: movimentações e validades sincronizadas entre toda a equipe no instante em que acontecem, com login 2FA, acesso por papel (RBAC) e auditoria.',
     study:
-      'Estado distribuído em tempo real: replicação de eventos via WebSocket (Supabase Realtime), Row Level Security como autorização no banco e um trigger que impede saída além do saldo — a regra de negócio onde ela não pode ser burlada.',
-    tags: ['React', 'TypeScript', 'Supabase', 'Realtime', 'PostgreSQL', 'RLS'],
+      'Estado distribuído em tempo real (replicação de eventos via WebSocket/Supabase Realtime) e autorização no banco: Row Level Security, um trigger que impede saída além do saldo e um subsistema de acesso (RBAC de 5 papéis + MFA TOTP) validado em funções SECURITY DEFINER que recarregam o papel do ator — nunca confiam no cliente. É a 2ª geração de um sistema antes clássico (Express + Sequelize + Docker), reescrito para tempo real.',
+    tags: ['React', 'TypeScript', 'Supabase', 'Realtime', 'RLS', 'RBAC · 2FA'],
     label: 'TEMPO REAL · SAÚDE PÚBLICA',
     href: `${GH}/zoonoses-inventory-dashboard`,
     demo: `${PAGES}/zoonoses-inventory-dashboard/`,
     external: true,
-    metric: 'sincronização entre clientes em <1s · conta demo de um clique',
+    metric: 'sync entre clientes em <1s · RBAC de 5 papéis + 2FA · conta demo de um clique',
     shot: shotZoonoses,
   },
   {
