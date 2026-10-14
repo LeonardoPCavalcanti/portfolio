@@ -38,10 +38,10 @@ export default function Contact() {
                 href={l.href}
                 target={l.href.startsWith('mailto') ? undefined : '_blank'}
                 rel="noreferrer"
-                className="group flex items-center justify-between gap-4 py-4"
+                className="group flex flex-col items-start gap-1 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
               >
                 <span className="font-mono text-xs uppercase text-muted">{l.label}</span>
-                <span className="break-all text-right font-semibold group-hover:text-orange">
+                <span className="font-semibold [overflow-wrap:anywhere] group-hover:text-orange sm:text-right">
                   {l.text} <span aria-hidden>↗</span>
                 </span>
               </a>

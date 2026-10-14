@@ -23,7 +23,11 @@ export default function CountUp({ value, suffix = '', className = '' }: { value:
   }, [inView, reduce, value]);
 
   return (
-    <span ref={ref} className={className} aria-label={`${value}${suffix}`}>
+    <span ref={ref} className={className}>
+      <span className="sr-only">
+        {value}
+        {suffix}
+      </span>
       <span aria-hidden>
         {shown}
         {suffix}

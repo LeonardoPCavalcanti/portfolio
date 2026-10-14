@@ -5,9 +5,10 @@ import { useT } from '../../i18n/useT';
 import { ui } from '../../i18n/ui';
 import Label from '../ui/Label';
 
+// Piso de 0.4: a palavra ainda apagada mantém ~3,5:1 sobre o preto (AA para texto grande).
 function Word({ word, i, total, progress }: { word: string; i: number; total: number; progress: MotionValue<number> }) {
   const start = i / total;
-  const opacity = useTransform(progress, [start, start + 1 / total], [0.18, 1]);
+  const opacity = useTransform(progress, [start, start + 1 / total], [0.4, 1]);
   return (
     <motion.span aria-hidden style={{ opacity }} className="inline-block">
       {word}&nbsp;
