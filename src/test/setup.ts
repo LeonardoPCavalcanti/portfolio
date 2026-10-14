@@ -4,25 +4,37 @@ import { cleanup } from '@testing-library/react';
 
 afterEach(() => cleanup());
 
-// jsdom não implementa matchMedia; os testes ligam "reduzir movimento"
-// trocando window.__reduceMotion antes de renderizar.
+// jsdom não implementa matchMedia. O motion lê a preferência uma vez e depois
+// só escuta mudanças; por isso o mock avisa os ouvintes, como o navegador faz.
+// Nos testes, use window.__setReduceMotion(true | false).
 declare global {
   interface Window {
     __reduceMotion?: boolean;
+    __setReduceMotion: (v: boolean) => void;
   }
 }
+const listeners = new Set<() => void>();
+window.__setReduceMotion = (v: boolean) => {
+  window.__reduceMotion = v;
+  listeners.forEach((l) => l());
+};
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: (query: string) => ({
-    matches: query.includes('prefers-reduced-motion') ? Boolean(window.__reduceMotion) : false,
-    media: query,
-    onchange: null,
-    addListener: () => {},
-    removeListener: () => {},
-    addEventListener: () => {},
-    removeEventListener: () => {},
-    dispatchEvent: () => false,
-  }),
+  value: (query: string) => {
+    const isReduce = query.includes('prefers-reduced-motion');
+    return {
+      get matches() {
+        return isReduce ? Boolean(window.__reduceMotion) : false;
+      },
+      media: query,
+      onchange: null,
+      addListener: (l: () => void) => isReduce && listeners.add(l),
+      removeListener: (l: () => void) => listeners.delete(l),
+      addEventListener: (_e: string, l: () => void) => isReduce && listeners.add(l),
+      removeEventListener: (_e: string, l: () => void) => listeners.delete(l),
+      dispatchEvent: () => false,
+    };
+  },
 });
 
 // motion usa IntersectionObserver em whileInView.
