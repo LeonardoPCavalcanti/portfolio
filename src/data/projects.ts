@@ -33,7 +33,8 @@ export const featured: Project[] = [
       en: 'Website and admin panel for the Conect2AI lab (DCA/UFRN), from data modeling to UI. Role-based access, review before publishing, append-only audit trail exportable to CSV, Excel, PDF and Word, and a three-language site with translated URLs.',
     },
     stack: ['Fastify', 'Prisma', 'PostgreSQL', 'Next.js', 'Docker'],
-    links: { site: 'https://conect2ai.dca.ufrn.br' },
+    // conect2ai.dca.ufrn.br ainda serve o site antigo (14/10/2026); sem link até o novo ir ao ar.
+    links: {},
     private: true,
     shot: shotConect2ai,
     shotAlt: { pt: 'Página inicial do site do Conect2AI', en: 'Conect2AI website home page' },
