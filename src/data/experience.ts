@@ -1,6 +1,6 @@
 import type { ExperienceItem } from '../types';
 
-// O período do SellerScope fica "atual" até o mês de início ser confirmado.
+// SellerScope: o primeiro repositório da organização LP Solutions Group é de 24/03/2026.
 export const experience: ExperienceItem[] = [
   {
     period: { pt: '08/2026 – atual', en: '08/2026 – present' },
@@ -10,7 +10,7 @@ export const experience: ExperienceItem[] = [
     current: true,
   },
   {
-    period: { pt: 'atual', en: 'present' },
+    period: { pt: '03/2026 – atual', en: '03/2026 – present' },
     org: 'SellerScope',
     role: { pt: 'Co-fundador · backend', en: 'Co-founder · backend' },
     tag: { pt: 'SaaS', en: 'SaaS' },

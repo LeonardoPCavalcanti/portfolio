@@ -13,6 +13,7 @@ export const featured: Project[] = [
     num: '001',
     name: 'SellerScope',
     role: { pt: 'Co-fundador · backend', en: 'Co-founder · backend' },
+    period: { pt: '03/2026 – atual', en: '03/2026 – present' },
     summary: {
       pt: 'SaaS de inteligência de mercado para quem vende na Shopee, no Mercado Livre e no TikTok Shop, com três extensões publicadas na Chrome Web Store. Cuido do backend: cobrança recorrente com webhooks idempotentes, cancelamento automático por inadimplência e acesso por plano validado no banco com Row Level Security.',
       en: 'Market intelligence SaaS for sellers on Shopee, Mercado Livre and TikTok Shop, with three extensions published on the Chrome Web Store. I own the backend: recurring billing with idempotent webhooks, automatic cancellation on non-payment and plan-based access enforced in the database with Row Level Security.',

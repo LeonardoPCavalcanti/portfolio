@@ -2,6 +2,13 @@ import type { FaqItem } from '../types';
 
 export const faq: FaqItem[] = [
   {
+    q: { pt: 'Qual é a sua disponibilidade?', en: 'What is your availability?' },
+    a: {
+      pt: 'Me chama pelo e-mail ou pelo LinkedIn e a gente acerta horário, carga e modalidade.',
+      en: 'Reach out by email or LinkedIn and we can work out schedule, hours and work arrangement.',
+    },
+  },
+  {
     q: { pt: 'Qual é a sua formação?', en: 'What is your education?' },
     a: {
       pt: 'Bacharel em Ciência e Tecnologia pela UFRN (2024) e graduando em Engenharia de Computação na mesma universidade.',
