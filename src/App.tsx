@@ -1,34 +1,32 @@
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
-import FocusAreas from './components/sections/FocusAreas';
+import Stats from './components/sections/Stats';
 import Projects from './components/sections/Projects';
-import References from './components/sections/References';
-import About from './components/sections/About';
-import Skills from './components/sections/Skills';
+import Research from './components/sections/Research';
+import Stack from './components/sections/Stack';
+import Experience from './components/sections/Experience';
+import Faq from './components/sections/Faq';
 import Contact from './components/sections/Contact';
 
 /**
- * Portfólio de página única no estilo editorial da wibify.agency.
- * As seções são âncoras de scroll suave; a navegação é uma pílula de vidro
- * flutuante. O fio condutor é acadêmico: cada projeto e cada referência
- * existem para compartilhar conhecimento com quem visita o perfil.
+ * Página única: topo laranja, seções em papel claro, uma faixa preta.
+ * Todo conteúdo vem de src/data em PT e EN; nada de skill sem evidência.
  */
 export default function App() {
   return (
     <>
       <Header />
-
-      <main>
+      <main id="conteudo">
         <Hero />
-        <FocusAreas />
+        <Stats />
         <Projects />
-        <References />
-        <About />
-        <Skills />
+        <Research />
+        <Stack />
+        <Experience />
+        <Faq />
         <Contact />
       </main>
-
       <Footer />
     </>
   );

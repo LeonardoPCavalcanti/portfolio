@@ -1,22 +1,40 @@
-import type { Experience } from '../types';
+import type { ExperienceItem } from '../types';
 
-export const experiences: Experience[] = [
+// SellerScope: o primeiro repositório da organização LP Solutions Group é de 24/03/2026.
+export const experience: ExperienceItem[] = [
   {
-    period: '2024 — Atual',
-    role: 'Bolsista de Iniciação Científica',
-    company: 'IMD / UFRN — Computação Confidencial · Full-Stack',
-    active: true,
+    period: { pt: '08/2026 – atual', en: '08/2026 – present' },
+    org: 'Edge4AI · Conect2AI/DCA/UFRN',
+    role: { pt: 'Bolsista de iniciação científica (CNPq)', en: 'Undergraduate research fellow (CNPq)' },
+    tag: { pt: 'IA na borda', en: 'Edge AI' },
+    current: true,
   },
   {
-    period: '2023 — 2024',
-    role: 'Bolsista — Redes e Infraestrutura',
-    company: 'CCHLA / UFRN — Técnico de Redes',
-    active: false,
+    period: { pt: '03/2026 – atual', en: '03/2026 – present' },
+    org: 'SellerScope',
+    role: { pt: 'Co-fundador · backend', en: 'Co-founder · backend' },
+    tag: { pt: 'SaaS', en: 'SaaS' },
+    current: true,
   },
   {
-    period: '2022 — 2024',
-    role: 'Estagiário — Desenvolvedor Full-Stack',
-    company: 'SEEC / RN — Backend · Automação · QA',
-    active: false,
+    period: { pt: '10/2024 – atual', en: '10/2024 – present' },
+    org: 'Gerência de Redes · CCHLA/UFRN',
+    role: { pt: 'Bolsista em infraestrutura e dados', en: 'Infrastructure and data fellow' },
+    tag: { pt: 'Linux · Docker', en: 'Linux · Docker' },
+    current: true,
+  },
+  {
+    period: { pt: '01/2026 – 05/2026', en: '01/2026 – 05/2026' },
+    org: 'ConfIoTA · IMD/UFRN',
+    role: { pt: 'Bolsista de iniciação científica', en: 'Undergraduate research fellow' },
+    tag: { pt: 'SBSeg 2026', en: 'SBSeg 2026' },
+    current: false,
+  },
+  {
+    period: { pt: '10/2022 – 10/2024', en: '10/2022 – 10/2024' },
+    org: 'GPD · SEEC/RN',
+    role: { pt: 'Estagiário em desenvolvimento', en: 'Software development intern' },
+    tag: { pt: 'Node · React', en: 'Node · React' },
+    current: false,
   },
 ];

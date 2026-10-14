@@ -1,71 +1,83 @@
-// Tipos compartilhados em todo o portfólio.
+import type { Localized } from '../i18n/types';
 
-/** Um projeto exibido na seção Projects. */
-export interface Project {
-  /** Número de exibição, ex.: "01" */
-  num: string;
-  title: string;
-  description: string;
-  /**
-   * O que está sendo estudado neste projeto (conceito/teoria) — usado para
-   * o viés acadêmico do portfólio: compartilhar conhecimento com quem visita.
-   */
-  study: string;
-  tags: string[];
-  /** Rótulo curto exibido no card. */
-  label: string;
-  /** Destino do link: repositório, demo ao vivo ou âncora interna (#contact). */
-  href: string;
-  /** Demo interativa ao vivo (opcional) — abre em nova aba. */
+export type ProjectId =
+  | 'sellerscope'
+  | 'conect2ai-site'
+  | 'intranet-ia'
+  | 'zoonoses'
+  | 'elobelle'
+  | 'leoehelena'
+  | 'cinereserve'
+  | 'filevault'
+  | 'compiler'
+  | 'twitter';
+
+export interface ProjectLinks {
+  site?: string;
   demo?: string;
-  /** true = link externo (abre em nova aba); false = âncora interna. */
-  external: boolean;
-  /** Projeto de repositório privado — exibe cadeado e aponta para contato. */
-  isPrivate?: boolean;
-  /** Resultado mensurável do projeto (testes, Lighthouse, latência) — prova, não adjetivo. */
-  metric?: string;
-  /** Screenshot real do demo ao vivo (importado de assets/shots). */
-  shot?: string;
+  code?: string;
 }
 
-/** Uma área de estudo/foco (card numerado, grade 2×N). */
-export interface FocusArea {
+export interface Project {
+  id: ProjectId;
+  /** Número de exibição, ex.: "001". */
   num: string;
+  name: string;
+  role: Localized;
+  period?: Localized;
+  summary: Localized;
+  stack: string[];
+  links: ProjectLinks;
+  /** Código fechado: mostra "case privado". */
+  private?: boolean;
+  /** Print real (import de assets/shots). */
+  shot?: string;
+  shotAlt?: Localized;
+  /** No lugar do print, quando o projeto é privado e tem dado sensível. */
+  illustration?: 'ai-flow';
+}
+
+export interface OtherProject {
+  id: ProjectId;
+  name: string;
+  line: Localized;
+  stack: string[];
+  links: ProjectLinks;
+}
+
+export interface StackItem {
+  /** Localized só quando o nome muda de idioma ("Testes"/"Testing"). */
+  name: string | Localized;
+  /** Ex.: "NestJS, Fastify". */
+  detail?: string;
+  /** 'research' = a evidência é o artigo (ConfIoTA), não um projeto da lista. */
+  usedIn: Array<ProjectId | 'research'>;
+}
+
+export interface Paper {
+  authors: string;
   title: string;
-  description: string;
-  /** Tópicos concretos estudados dentro da área. */
-  topics: string[];
+  venue: string;
+  pages: string;
+  doi: string;
+  contribution: Localized;
 }
 
-/**
- * Uma referência acadêmica (livro/paper/curso) que fundamenta um dos projetos.
- * Exibida como "cartão de arquivo" com nome em mono — no espírito da seção
- * "Verify our claims / References" da wibify, aqui voltada a leituras.
- */
-export interface Reference {
-  /** Nome estilo arquivo, ex.: "dragon-book.pdf". */
-  file: string;
-  /** Autor(es). */
-  author: string;
-  /** Título da obra. */
-  title: string;
-  /** Por que importa / o que ensina. */
-  note: string;
-  /** Link para a obra/recurso canônico. */
-  href: string;
+export interface ExperienceItem {
+  period: Localized;
+  org: string;
+  role: Localized;
+  tag: Localized;
+  current: boolean;
 }
 
-/** Um grupo de skills (categoria + itens). */
-export interface SkillGroup {
-  category: string;
-  items: string[];
+export interface FaqItem {
+  q: Localized;
+  a: Localized;
 }
 
-/** Uma entrada de experiência profissional/acadêmica. */
-export interface Experience {
-  period: string;
-  role: string;
-  company: string;
-  /** Se true, exibe o badge "Ativo". */
-  active: boolean;
+export interface Stat {
+  value: number;
+  suffix?: string;
+  label: Localized;
 }
