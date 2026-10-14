@@ -57,7 +57,7 @@ export const ui = {
   contact: {
     label: { pt: 'Contato', en: 'Contact' },
     title: { pt: 'Vamos colocar algo no ar juntos?', en: 'Shall we ship something together?' },
-    cv: { pt: 'Baixar CV', en: 'Download CV (Portuguese)' },
+    cta: { pt: 'Enviar e-mail', en: 'Send an email' },
     email: { pt: 'E-mail', en: 'Email' },
     top: { pt: 'Voltar ao topo', en: 'Back to top' },
   },

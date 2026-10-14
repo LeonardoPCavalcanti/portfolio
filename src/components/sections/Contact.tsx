@@ -7,7 +7,6 @@ import Magnetic from '../ui/Magnetic';
 
 export default function Contact() {
   const { t } = useT();
-  const cv = `${import.meta.env.BASE_URL}${profile.cvPath}`;
   const links = [
     { label: t(ui.contact.email), href: `mailto:${profile.email}`, text: profile.email },
     { label: 'LinkedIn', href: profile.linkedin, text: 'leonardocavalcanti-dev' },
@@ -22,11 +21,10 @@ export default function Contact() {
           <div className="mt-8">
             <Magnetic>
               <a
-                href={cv}
-                download
+                href={`mailto:${profile.email}`}
                 className="inline-flex items-center gap-3 rounded-full bg-orange px-6 py-3.5 font-semibold text-white transition-colors hover:bg-ink"
               >
-                {t(ui.contact.cv)} <span aria-hidden>↓</span>
+                {t(ui.contact.cta)} <span aria-hidden>↗</span>
               </a>
             </Magnetic>
           </div>

@@ -11,5 +11,4 @@ export const profile = {
   email: 'leopcavalcanti30@gmail.com',
   linkedin: 'https://www.linkedin.com/in/leonardocavalcanti-dev',
   github: 'https://github.com/LeonardoPCavalcanti',
-  cvPath: 'cv/Leonardo_Cavalcanti_CV.pdf',
 };

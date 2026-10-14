@@ -18,3 +18,15 @@ describe('navegação', () => {
     expect(container.querySelector('#conteudo')).not.toBeNull();
   });
 });
+
+describe('contato', () => {
+  it('não oferece CV para download (decisão do Leonardo)', () => {
+    const { container } = render(
+      <LangProvider>
+        <App />
+      </LangProvider>,
+    );
+    expect(container.querySelector('a[download]')).toBeNull();
+    expect(container.querySelector('a[href*=".pdf"]')).toBeNull();
+  });
+});
