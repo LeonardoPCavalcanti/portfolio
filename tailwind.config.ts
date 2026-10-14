@@ -15,6 +15,8 @@ const config: Config = {
         paper: '#F4F3EF',
         ink: '#111110',
         muted: '#6E6B66',
+        // Segundo tom dos títulos: 3,3:1 sobre o papel (AA para texto grande).
+        dim: '#8A867F',
         line: '#DCD9D2',
       },
       fontFamily: {

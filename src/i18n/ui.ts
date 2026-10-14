@@ -8,6 +8,7 @@ export const ui = {
     contact: { pt: 'Contato', en: 'Contact' },
     langLabel: { pt: 'Idioma', en: 'Language' },
     skip: { pt: 'Pular para o conteúdo', en: 'Skip to content' },
+    mainLabel: { pt: 'Principal', en: 'Main' },
   },
   hero: {
     place: { pt: '©2026 · Natal/RN', en: '©2026 · Natal, Brazil' },
@@ -55,7 +56,7 @@ export const ui = {
   },
   contact: {
     label: { pt: 'Contato', en: 'Contact' },
-    title: { pt: 'Bora construir algo que fique no ar?', en: "Let's build something that stays live?" },
+    title: { pt: 'Bora construir algo que fique no ar?', en: 'Want to build something that stays live?' },
     cv: { pt: 'Baixar CV', en: 'Download CV (PT)' },
     email: { pt: 'E-mail', en: 'Email' },
     top: { pt: 'Voltar ao topo', en: 'Back to top' },

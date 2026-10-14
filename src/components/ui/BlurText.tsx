@@ -25,7 +25,7 @@ export default function BlurText({
   delay = 0,
   dimFrom,
   dimWords,
-  dimClassName = 'text-muted/60',
+  dimClassName = 'text-dim',
 }: BlurTextProps) {
   const reduce = useReducedMotion();
   const Tag = as;

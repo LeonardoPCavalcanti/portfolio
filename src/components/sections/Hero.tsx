@@ -41,7 +41,7 @@ export default function Hero() {
       <motion.p
         aria-hidden
         style={{ y: ghostY }}
-        className="pointer-events-none absolute inset-x-0 top-[9vh] select-none whitespace-nowrap text-center text-[clamp(48px,15.5vw,230px)] font-black leading-none tracking-crush text-white/[0.12]"
+        className="pointer-events-none absolute inset-x-0 top-[max(9vh,6rem)] select-none whitespace-nowrap text-center text-[clamp(48px,15.5vw,230px)] font-black leading-none tracking-crush text-white/[0.12]"
       >
         {profile.lastName.toUpperCase()}
       </motion.p>
@@ -73,7 +73,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="container-x relative z-20 flex flex-1 flex-col pb-8 pt-[max(7rem,calc(9vh+min(15.5vw,230px)+1rem))]">
+      <div className="container-x relative z-20 flex flex-1 flex-col pb-8 pt-[calc(max(9vh,6rem)+min(15.5vw,230px)+1rem)]">
         <motion.p {...enter(0.25)} className="max-w-[270px] text-xs font-semibold uppercase leading-relaxed md:text-[13px]">
           {t(profile.lede)}
         </motion.p>

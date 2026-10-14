@@ -19,11 +19,14 @@ export default function Header() {
       >
         {t(ui.nav.skip)}
       </a>
-      <div className="container-x flex items-center justify-between py-5">
+      <div className="container-x flex flex-wrap items-center justify-between gap-y-3 py-5">
         <a href="#top" className="text-sm font-extrabold tracking-tight">
           Leonardo®
         </a>
-        <nav aria-label="Principal" className="hidden gap-7 text-sm font-medium md:flex">
+        <nav
+          aria-label={t(ui.nav.mainLabel)}
+          className="order-last flex w-full gap-5 text-xs font-medium md:order-none md:w-auto md:gap-7 md:text-sm"
+        >
           {NAV.map((n) => (
             <a key={n.href} href={n.href} className="opacity-90 transition-opacity hover:opacity-100">
               {t(n.label)}
@@ -37,7 +40,7 @@ export default function Header() {
               type="button"
               aria-pressed={lang === l}
               onClick={() => setLang(l)}
-              className={`rounded-full px-2.5 py-1 uppercase transition-colors ${lang === l ? 'bg-white text-orange' : 'text-white/80 hover:text-white'}`}
+              className={`rounded-full px-2.5 py-1 uppercase transition-colors ${lang === l ? 'bg-white text-orange' : 'text-white hover:bg-white/15'}`}
             >
               {l}
             </button>
