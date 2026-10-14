@@ -70,5 +70,6 @@ body {
 
   .display {
     @apply font-extrabold uppercase leading-[0.95] tracking-tightest;
+    word-spacing: 0.08em;
   }
 }
