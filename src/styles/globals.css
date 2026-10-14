@@ -41,6 +41,12 @@ body {
   border-radius: 2px;
 }
 
+/* Sobre o laranja do topo, o anel laranja some: lá ele é branco. */
+header :focus-visible,
+#top :focus-visible {
+  outline-color: #fff;
+}
+
 @layer components {
   .container-x {
     @apply mx-auto w-full max-w-[1200px] px-4 sm:px-8;
