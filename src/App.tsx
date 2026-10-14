@@ -4,6 +4,8 @@ import Stats from './components/sections/Stats';
 import Projects from './components/sections/Projects';
 import Research from './components/sections/Research';
 import Stack from './components/sections/Stack';
+import Experience from './components/sections/Experience';
+import Faq from './components/sections/Faq';
 
 export default function App() {
   return (
@@ -15,6 +17,8 @@ export default function App() {
         <Projects />
         <Research />
         <Stack />
+        <Experience />
+        <Faq />
       </main>
     </>
   );
