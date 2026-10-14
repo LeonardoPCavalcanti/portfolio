@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>og-image</title>
+    <!-- Rasterização do card social (1200x630) e do banner do perfil (1280x640).
+         Abrir pelo servidor do Vite: /portfolio/scripts/make-og.html (?banner para o banner)
+         e fazer print do elemento #og. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;900&family=JetBrains+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body { margin: 0; }
+      #og {
+        position: relative; width: 1200px; height: 630px; overflow: hidden;
+        background: #cc4a1c; color: #fff; font-family: 'Inter Tight', sans-serif;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+        background-size: 25% 33.333%;
+      }
+      .banner #og { width: 1280px; height: 640px; }
+      .ghost {
+        position: absolute; top: 34px; left: 0; right: 0; text-align: center;
+        font-weight: 900; font-size: 190px; letter-spacing: -0.055em; line-height: 1;
+        color: rgba(255, 255, 255, 0.12); white-space: nowrap;
+      }
+      .me { position: absolute; bottom: 0; right: 70px; height: 590px; }
+      .name {
+        position: absolute; left: 56px; bottom: 40px; font-weight: 900; font-size: 150px;
+        letter-spacing: -0.055em; line-height: 0.82;
+      }
+      .role { position: absolute; left: 60px; top: 250px; width: 470px; font-weight: 500; font-size: 28px; line-height: 1.3; }
+      .tag { position: absolute; left: 60px; bottom: 190px; font: 500 19px 'JetBrains Mono', monospace; }
+    </style>
+  </head>
+  <body>
+    <div id="og">
+      <div class="ghost">CAVALCANTI</div>
+      <img class="me" src="../src/assets/me/leo-1200.png" alt="" />
+      <div class="role" id="role">Desenvolvedor full-stack. Construo e mantenho software em produção.</div>
+      <div class="tag">Natal/RN · TypeScript · React · Node.js · PostgreSQL</div>
+      <div class="name">LEONARDO</div>
+    </div>
+    <script>
+      if (location.search.includes('banner')) {
+        document.body.classList.add('banner');
+        document.getElementById('role').textContent = 'Desenvolvedor full-stack · UFRN';
+      }
+    </script>
+  </body>
+</html>
