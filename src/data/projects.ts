@@ -30,7 +30,7 @@ export const featured: Project[] = [
     name: 'Conect2AI',
     role: { pt: 'Desenvolvedor principal · estágio obrigatório', en: 'Lead developer · required internship' },
     summary: {
-      pt: 'Site e painel administrativo do laboratório Conect2AI (DCA/UFRN), da modelagem de dados à interface. Controle de acesso por papéis, revisão antes de publicar, trilha de auditoria só de inserção exportável em CSV, Excel, PDF e Word, e site em três idiomas com URLs traduzidas.',
+      pt: 'Site e painel administrativo do laboratório Conect2AI (DCA/UFRN), da modelagem de dados à interface. Controle de acesso por papéis, revisão antes de publicar, trilha de auditoria imutável, exportável em CSV, Excel, PDF e Word, e site em três idiomas com URLs traduzidas.',
       en: 'Website and admin panel for the Conect2AI lab (DCA/UFRN), from data modeling to UI. Role-based access, review before publishing, append-only audit trail exportable to CSV, Excel, PDF and Word, and a three-language site with translated URLs.',
     },
     stack: ['Fastify', 'Prisma', 'PostgreSQL', 'Next.js', 'Docker'],
@@ -46,8 +46,8 @@ export const featured: Project[] = [
     name: 'Intranet IA',
     role: { pt: 'Desenvolvedor · Conect2AI', en: 'Developer · Conect2AI' },
     summary: {
-      pt: 'Ferramenta interna que gera conteúdo do laboratório com IA. Vários provedores de LLM com failover e contexto compartilhado entre eles, avaliação das respostas, exemplos few-shot e um pipeline de fine-tuning (SFT e KTO) a partir das avaliações.',
-      en: 'Internal tool that generates the lab content with AI. Multiple LLM providers with failover and shared context, response evaluation, few-shot examples and a fine-tuning pipeline (SFT and KTO) fed by those evaluations.',
+      pt: 'Ferramenta interna que usa IA para gerar o conteúdo do laboratório. Vários provedores de LLM com failover e contexto compartilhado entre eles, avaliação das respostas, exemplos few-shot e um pipeline de fine-tuning (SFT e KTO) a partir das avaliações.',
+      en: 'Internal tool that uses AI to generate the lab’s content. Multiple LLM providers with failover and shared context, response evaluation, few-shot examples and a fine-tuning pipeline (SFT and KTO) fed by those evaluations.',
     },
     stack: ['TypeScript', 'Fastify', 'PostgreSQL', 'React', 'Python'],
     links: {},
@@ -60,8 +60,8 @@ export const featured: Project[] = [
     name: 'Zoonoses',
     role: { pt: 'Desenvolvedor', en: 'Developer' },
     summary: {
-      pt: 'Controle de estoque e pedidos do Centro de Zoonoses com atualização em tempo real entre clientes, papéis de acesso, autenticação em dois fatores, assinatura de documentos em PDF e relatórios agendados.',
-      en: 'Inventory and order system for the Zoonoses Center with real-time sync across clients, access roles, two-factor authentication, PDF document signing and scheduled reports.',
+      pt: 'Controle de estoque e pedidos do Centro de Zoonoses com sincronização em tempo real entre usuários, papéis de acesso, autenticação em dois fatores, assinatura de documentos em PDF e relatórios agendados.',
+      en: 'Inventory and order system for the Zoonoses Center with real-time sync across users, access roles, two-factor authentication, PDF document signing and scheduled reports.',
     },
     stack: ['React', 'TypeScript', 'PostgreSQL', 'Supabase', 'Docker'],
     links: { demo: `${PAGES}/zoonoses-inventory-dashboard/`, code: `${GH}/zoonoses-inventory-dashboard` },
@@ -110,7 +110,7 @@ export const others: OtherProject[] = [
     id: 'filevault',
     name: 'FileVault',
     line: {
-      pt: 'Upload seguro com URLs pré-assinadas e checagem de tipo real do arquivo.',
+      pt: 'Upload seguro com URLs pré-assinadas e verificação do tipo real do arquivo.',
       en: 'Secure uploads with presigned URLs and real file-type checks.',
     },
     stack: ['NestJS', 'React', 'S3'],
@@ -130,8 +130,8 @@ export const others: OtherProject[] = [
     id: 'twitter',
     name: 'Distributed Twitter',
     line: {
-      pt: 'Consistência eventual contra causal com relógios vetoriais, visualizada passo a passo.',
-      en: 'Eventual versus causal consistency with vector clocks, visualized step by step.',
+      pt: 'Consistência eventual e causal comparadas com relógios vetoriais, passo a passo.',
+      en: 'Eventual and causal consistency compared with vector clocks, step by step.',
     },
     stack: ['Python', 'FastAPI', 'React'],
     links: { demo: `${PAGES}/distributed-twitter-consistency/`, code: `${GH}/distributed-twitter-consistency` },

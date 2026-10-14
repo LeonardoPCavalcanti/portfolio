@@ -4,8 +4,8 @@ export const faq: FaqItem[] = [
   {
     q: { pt: 'Qual é a sua disponibilidade?', en: 'What is your availability?' },
     a: {
-      pt: 'Me chama pelo e-mail ou pelo LinkedIn e a gente acerta horário, carga e modalidade.',
-      en: 'Reach out by email or LinkedIn and we can work out schedule, hours and work arrangement.',
+      pt: 'Entre em contato por e-mail ou LinkedIn para combinarmos horário, carga horária e modalidade.',
+      en: 'Get in touch by email or LinkedIn so we can agree on schedule, hours and work arrangement.',
     },
   },
   {
@@ -27,9 +27,9 @@ export const faq: FaqItem[] = [
     a: { pt: 'Natal, Rio Grande do Norte.', en: 'Natal, Rio Grande do Norte, Brazil.' },
   },
   {
-    q: { pt: 'Você já trabalhou com sistema em produção?', en: 'Have you worked on production systems?' },
+    q: { pt: 'Você já trabalhou com sistemas em produção?', en: 'Have you worked on production systems?' },
     a: {
-      pt: 'Sim. Mantenho o backend do SellerScope, que tem assinantes pagantes, e trabalhei dois anos na SEEC/RN do levantamento de requisitos à implantação.',
+      pt: 'Sim. Mantenho o backend do SellerScope, que tem assinantes pagantes, e passei dois anos na SEEC/RN levando funcionalidades do levantamento de requisitos à implantação.',
       en: 'Yes. I run the backend of SellerScope, which has paying subscribers, and spent two years at SEEC/RN taking features from requirements to deployment.',
     },
   },

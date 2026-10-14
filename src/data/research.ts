@@ -7,7 +7,7 @@ export const paper: Paper = {
   pages: 'p. 977-992',
   doi: '10.5753/sbseg.2026.27136',
   contribution: {
-    pt: 'Minha parte: verificação de identidade e integridade de nós integrada ao SPIRE (SPIFFE), com atestação conjunta de CPU e GPU, emissão automática de identidades X.509 e JWT para cargas em Kubernetes e medição de desempenho da atestação em Confidential Containers com Intel TDX e NVIDIA H100.',
-    en: 'My part: node identity and integrity verification integrated with SPIRE (SPIFFE), with joint CPU and GPU attestation, automatic X.509 and JWT identities for Kubernetes workloads, and attestation performance measurements on Confidential Containers with Intel TDX and NVIDIA H100.',
+    pt: 'Minha contribuição: verificação de identidade e integridade de nós integrada ao SPIRE (SPIFFE), com atestação conjunta de CPU e GPU, emissão automática de identidades X.509 e JWT para cargas em Kubernetes e medição de desempenho da atestação em Confidential Containers com Intel TDX e NVIDIA H100.',
+    en: 'My contribution: node identity and integrity verification integrated with SPIRE (SPIFFE), with joint CPU and GPU attestation, automatic X.509 and JWT identities for Kubernetes workloads, and attestation performance measurements on Confidential Containers with Intel TDX and NVIDIA H100.',
   },
 };

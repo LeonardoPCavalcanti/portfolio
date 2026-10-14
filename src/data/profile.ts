@@ -5,7 +5,7 @@ export const profile = {
   lastName: 'Cavalcanti',
   fullName: 'Leonardo Pessoa Cavalcanti',
   lede: {
-    pt: 'Construo e mantenho software em produção: SaaS com cobrança recorrente, extensões e IA aplicada.',
+    pt: 'Construo e mantenho software em produção: SaaS com cobrança recorrente, extensões para navegador e IA aplicada.',
     en: 'I build and run production software: SaaS with recurring billing, browser extensions and applied AI.',
   } satisfies Localized,
   email: 'leopcavalcanti30@gmail.com',
