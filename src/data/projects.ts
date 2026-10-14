@@ -1,101 +1,137 @@
-import type { Project } from '../types';
-import shotCineReserve from '../assets/shots/cinereserve.jpg';
+import type { OtherProject, Project } from '../types';
 import shotZoonoses from '../assets/shots/zoonoses.jpg';
-import shotFileVault from '../assets/shots/filevault.jpg';
-import shotTwitter from '../assets/shots/twitter.jpg';
-import shotCompiler from '../assets/shots/compiler.jpg';
+import shotSellerscope from '../assets/shots/sellerscope.jpg';
+import shotConect2ai from '../assets/shots/conect2ai.jpg';
+import shotElobelle from '../assets/shots/elobelle.jpg';
 
 const GH = 'https://github.com/LeonardoPCavalcanti';
 const PAGES = 'https://leonardopcavalcanti.github.io';
 
-export const projects: Project[] = [
+export const featured: Project[] = [
   {
-    num: '01',
-    title: 'CineReserve',
-    description:
-      'API RESTful de cinema com reserva de assentos sob controle de concorrência: autenticação JWT, sessões e bilhetagem, tarefas assíncronas (Celery/Redis), Swagger e 30 testes automatizados.',
-    study:
-      'Estudo de controle de concorrência: locks de assento com expiração, idempotência e a corrida clássica de duas reservas simultâneas (resposta 409). Frontend de demonstração simula a concorrência em memória.',
-    tags: ['Django REST', 'PostgreSQL', 'Redis', 'Celery', 'Docker', 'Pytest'],
-    label: 'BACKEND · CONCORRÊNCIA · API',
-    href: `${GH}/cinereserve`,
-    demo: `${PAGES}/cinereserve/`,
-    external: true,
-    metric: '30 testes automatizados · corrida de reserva tratada com 409',
-    shot: shotCineReserve,
+    id: 'sellerscope',
+    num: '001',
+    name: 'SellerScope',
+    role: { pt: 'Co-fundador · backend', en: 'Co-founder · backend' },
+    summary: {
+      pt: 'SaaS de inteligência de mercado para quem vende na Shopee, no Mercado Livre e no TikTok Shop, com três extensões publicadas na Chrome Web Store. Cuido do backend: cobrança recorrente com webhooks idempotentes, cancelamento automático por inadimplência e acesso por plano validado no banco com Row Level Security.',
+      en: 'Market intelligence SaaS for sellers on Shopee, Mercado Livre and TikTok Shop, with three extensions published on the Chrome Web Store. I own the backend: recurring billing with idempotent webhooks, automatic cancellation on non-payment and plan-based access enforced in the database with Row Level Security.',
+    },
+    stack: ['TypeScript', 'Next.js', 'PostgreSQL', 'Supabase', 'Chrome MV3', 'GitHub Actions'],
+    links: { site: 'https://sellerscope.com.br' },
+    private: true,
+    shot: shotSellerscope,
+    shotAlt: { pt: 'Página inicial do SellerScope', en: 'SellerScope landing page' },
   },
   {
-    num: '02',
-    title: 'Zoonoses Inventory',
-    description:
-      'Controle de estoque em tempo real para centros de zoonoses: movimentações e validades sincronizadas entre toda a equipe no instante em que acontecem, com login 2FA, acesso por papel (RBAC) e auditoria.',
-    study:
-      'Estado distribuído em tempo real (replicação de eventos via WebSocket/Supabase Realtime) e autorização no banco: Row Level Security, um trigger que impede saída além do saldo e um subsistema de acesso (RBAC de 5 papéis + MFA TOTP) validado em funções SECURITY DEFINER que recarregam o papel do ator — nunca confiam no cliente. É a 2ª geração de um sistema antes clássico (Express + Sequelize + Docker), reescrito para tempo real.',
-    tags: ['React', 'TypeScript', 'Supabase', 'Realtime', 'RLS', 'RBAC · 2FA'],
-    label: 'TEMPO REAL · SAÚDE PÚBLICA',
-    href: `${GH}/zoonoses-inventory-dashboard`,
-    demo: `${PAGES}/zoonoses-inventory-dashboard/`,
-    external: true,
-    metric: 'sync entre clientes em <1s · RBAC de 5 papéis + 2FA · conta demo de um clique',
+    id: 'conect2ai-site',
+    num: '002',
+    name: 'Conect2AI',
+    role: { pt: 'Desenvolvedor principal · estágio obrigatório', en: 'Lead developer · required internship' },
+    summary: {
+      pt: 'Site e painel administrativo do laboratório Conect2AI (DCA/UFRN), da modelagem de dados à interface. Controle de acesso por papéis, revisão antes de publicar, trilha de auditoria só de inserção exportável em CSV, Excel, PDF e Word, e site em três idiomas com URLs traduzidas.',
+      en: 'Website and admin panel for the Conect2AI lab (DCA/UFRN), from data modeling to UI. Role-based access, review before publishing, append-only audit trail exportable to CSV, Excel, PDF and Word, and a three-language site with translated URLs.',
+    },
+    stack: ['Fastify', 'Prisma', 'PostgreSQL', 'Next.js', 'Docker'],
+    links: { site: 'https://conect2ai.dca.ufrn.br' },
+    private: true,
+    shot: shotConect2ai,
+    shotAlt: { pt: 'Página inicial do site do Conect2AI', en: 'Conect2AI website home page' },
+  },
+  {
+    id: 'intranet-ia',
+    num: '003',
+    name: 'Intranet IA',
+    role: { pt: 'Desenvolvedor · Conect2AI', en: 'Developer · Conect2AI' },
+    summary: {
+      pt: 'Ferramenta interna que gera conteúdo do laboratório com IA. Vários provedores de LLM com failover e contexto compartilhado entre eles, avaliação das respostas, exemplos few-shot e um pipeline de fine-tuning (SFT e KTO) a partir das avaliações.',
+      en: 'Internal tool that generates the lab content with AI. Multiple LLM providers with failover and shared context, response evaluation, few-shot examples and a fine-tuning pipeline (SFT and KTO) fed by those evaluations.',
+    },
+    stack: ['TypeScript', 'Fastify', 'PostgreSQL', 'React', 'Python'],
+    links: {},
+    private: true,
+    illustration: 'ai-flow',
+  },
+  {
+    id: 'zoonoses',
+    num: '004',
+    name: 'Zoonoses',
+    role: { pt: 'Desenvolvedor', en: 'Developer' },
+    summary: {
+      pt: 'Controle de estoque e pedidos do Centro de Zoonoses com atualização em tempo real entre clientes, papéis de acesso, autenticação em dois fatores, assinatura de documentos em PDF e relatórios agendados.',
+      en: 'Inventory and order system for the Zoonoses Center with real-time sync across clients, access roles, two-factor authentication, PDF document signing and scheduled reports.',
+    },
+    stack: ['React', 'TypeScript', 'PostgreSQL', 'Supabase', 'Docker'],
+    links: { demo: `${PAGES}/zoonoses-inventory-dashboard/`, code: `${GH}/zoonoses-inventory-dashboard` },
     shot: shotZoonoses,
+    shotAlt: { pt: 'Painel de estoque do Zoonoses', en: 'Zoonoses inventory dashboard' },
   },
   {
-    num: '03',
-    title: 'FileVault',
-    description:
-      'Aplicação de upload de arquivos com presigned URLs para object storage, monorepo Turborepo e deploy automatizado. Demo ao vivo disponível.',
-    study:
-      'Arquitetura de upload direto ao storage: presigned URLs (o cliente envia direto ao bucket, sem passar o arquivo pelo servidor), validação por magic bytes, separação de responsabilidades em monorepo e CI/CD.',
-    tags: ['NestJS', 'React', 'Cloudflare R2', 'Turborepo', 'TypeScript'],
-    label: 'UPLOAD · STORAGE · MONOREPO',
-    href: `${GH}/filevault`,
-    demo: 'https://filevault-api.vercel.app',
-    external: true,
-    metric: '13 testes verdes · URLs assinadas com expiração curta',
-    shot: shotFileVault,
+    id: 'elobelle',
+    num: '005',
+    name: 'EloBelle',
+    role: { pt: 'Desenvolvedor full-stack', en: 'Full-stack developer' },
+    summary: {
+      pt: 'E-commerce de moda com Next.js no front e Spring Boot no back: login com Google, pagamento pelo Mercado Pago, imagens otimizadas pelo Cloudinary e nota máxima no Lighthouse nas páginas principais.',
+      en: 'Fashion e-commerce with Next.js on the front and Spring Boot on the back: Google sign-in, Mercado Pago payments, Cloudinary-optimized images and top Lighthouse scores on the main pages.',
+    },
+    stack: ['Java', 'Spring Boot', 'Next.js', 'PostgreSQL', 'Docker'],
+    links: {},
+    private: true,
+    shot: shotElobelle,
+    shotAlt: { pt: 'Vitrine da loja EloBelle', en: 'EloBelle storefront' },
+  },
+];
+
+export const others: OtherProject[] = [
+  {
+    id: 'leoehelena',
+    name: 'Leo & Helena',
+    line: {
+      pt: 'Site de casamento com lista de presentes paga e confirmação de presença.',
+      en: 'Wedding website with paid gift registry and RSVP.',
+    },
+    stack: ['Next.js', 'PostgreSQL', 'Mercado Pago'],
+    links: { site: 'https://leoehelena.vercel.app' },
   },
   {
-    num: '04',
-    title: 'Distributed Twitter',
-    description:
-      'Implementação de consistência eventual vs. causal em micro-blogging distribuído, com relógios vetoriais e broadcast causal entre réplicas.',
-    study:
-      'Teoria de sistemas distribuídos: a relação happened-before de Lamport, Vector Clocks e como o buffer causal evita a "reply órfã" (uma resposta entregue antes do post que ela responde). Visualização passo a passo das 3 réplicas.',
-    tags: ['Python', 'Vector Clocks', 'Causal Broadcast', 'Sistemas Distribuídos'],
-    label: 'SISTEMAS DISTRIBUÍDOS',
-    href: `${GH}/distributed-twitter-consistency`,
-    demo: `${PAGES}/distributed-twitter-consistency/`,
-    external: true,
-    metric: '3 réplicas simuladas · entrega causal visualizada passo a passo',
-    shot: shotTwitter,
+    id: 'cinereserve',
+    name: 'CineReserve',
+    line: {
+      pt: 'API de reserva de cinema com trava de assento contra reserva dupla.',
+      en: 'Cinema booking API with seat locking against double booking.',
+    },
+    stack: ['Python', 'Django REST', 'Redis'],
+    links: { demo: `${PAGES}/cinereserve/`, code: `${GH}/cinereserve` },
   },
   {
-    num: '05',
-    title: 'Expression Compiler',
-    description:
-      'Tradutor de expressões aritméticas com análise léxica, parser LL(1) e geração de código intermediário de três endereços.',
-    study:
-      'Front-end de compiladores: tokens (lexer), gramática livre de contexto e parsing preditivo LL(1), construção de AST e emissão de IR. Playground mostra tokens → AST → IR → execução ao vivo.',
-    tags: ['Python', 'Compiladores', 'LL(1)', 'Lexer', 'IR'],
-    label: 'COMPILADORES · TEORIA',
-    href: `${GH}/python-expression-compiler`,
-    demo: `${PAGES}/python-expression-compiler/`,
-    external: true,
-    metric: 'pipeline completo no browser: tokens → AST → IR → execução',
-    shot: shotCompiler,
+    id: 'filevault',
+    name: 'FileVault',
+    line: {
+      pt: 'Upload seguro com URLs pré-assinadas e checagem de tipo real do arquivo.',
+      en: 'Secure uploads with presigned URLs and real file-type checks.',
+    },
+    stack: ['NestJS', 'React', 'S3'],
+    links: { demo: 'https://filevault-api.vercel.app', code: `${GH}/filevault` },
   },
   {
-    num: '06',
-    title: 'EloBelle',
-    description:
-      'E-commerce completo de moda feminina com painel administrativo, checkout integrado, avaliações, cupons, chat de suporte e notificações em tempo real.',
-    study:
-      'Engenharia full-stack de ponta a ponta: modelagem de domínio de e-commerce, integração de gateway de pagamento, autenticação e um painel administrativo com dados em tempo real.',
-    tags: ['Next.js', 'Spring Boot', 'Java', 'PostgreSQL', 'TypeScript'],
-    label: 'E-COMMERCE · FULL-STACK',
-    href: '#contact',
-    external: false,
-    isPrivate: true,
-    metric: 'Lighthouse 100 · 100 · 100 · 100 (perf, a11y, práticas, SEO)',
+    id: 'compiler',
+    name: 'Expression Compiler',
+    line: {
+      pt: 'Compilador de expressões com playground: tokens, árvore sintática e código intermediário.',
+      en: 'Expression compiler with a playground: tokens, syntax tree and intermediate code.',
+    },
+    stack: ['Python', 'TypeScript'],
+    links: { demo: `${PAGES}/python-expression-compiler/`, code: `${GH}/python-expression-compiler` },
+  },
+  {
+    id: 'twitter',
+    name: 'Distributed Twitter',
+    line: {
+      pt: 'Consistência eventual contra causal com relógios vetoriais, visualizada passo a passo.',
+      en: 'Eventual versus causal consistency with vector clocks, visualized step by step.',
+    },
+    stack: ['Python', 'FastAPI', 'React'],
+    links: { demo: `${PAGES}/distributed-twitter-consistency/`, code: `${GH}/distributed-twitter-consistency` },
   },
 ];
