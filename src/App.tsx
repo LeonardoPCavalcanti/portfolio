@@ -1,4 +1,13 @@
-// Montagem provisória: as seções novas entram a partir da Task 6.
+import Header from './components/layout/Header';
+import Hero from './components/sections/Hero';
+
 export default function App() {
-  return <main id="conteudo" />;
+  return (
+    <>
+      <Header />
+      <main id="conteudo">
+        <Hero />
+      </main>
+    </>
+  );
 }
